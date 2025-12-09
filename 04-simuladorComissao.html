@@ -21,15 +21,32 @@
     return sla;
 
 }
-    function registrar(nome){
-        for(dias = 0; dias <= 5; dias++){
+    function registrar(nome, i){
+        let vendaDoVendedor = vendas[i];
+        for(let dias = 1; dias <= 5; dias++){
         let vendido = Number(prompt(`Informe a venda do dia ${dias} do vendedor ${nome}`));
-
-         while (vendido <= 0 || isNaN(vendido)) {
-        vendido = Number(prompt(`Inválido! O valor deve ser positivo:`));
-
-        // Ainda vou ver como vou add isso pra vendas
-        }
+        vendido = validar(vendido);
+        vendaDoVendedor.push(vendido)
     }
-}
+}   
+    function calcular(todas){
+        let soma = 0;
+        for(let x = 0; x < todas.length; x++){
+            soma+= todas[x];
+        }
+        return soma;
+    }
+    function comissao(hailToTheKing){
+        let comissao = 0;
+        if(hailToTheKing <  5000){
+            comissao = hailToTheKing * 0.05;
+        } else if(hailToTheKing <= 10000){
+        comissao = hailToTheKing * 0.1;
+        }else if(hailToTheKing <= 15000){
+            comissao = hailToTheKing * 0.15;
+        }else if(hailToTheKing > 15000){
+            comissao = hailToTheKing * 0.20
+        }
+        return comissao;
+    }
 </script>
