@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    /* 
+    1. Função para validar valor de venda: Valide se o valor é positivo (use while).
+    2. Função para registrar vendas: Use for para registrar vendas de 5 dias para cada vendedor. Armazene em um array.
+    3. Função para calcular total de vendas: Some todas as vendas de cada vendedor usando for.
+    4. Função para calcular comissão: Use if...else aninhado:
+    - Vendas < R$ 5000: 5% de comissão
+    - Vendas R$ 5000 a R$ 10000: 10% de comissão
+    - Vendas R$ 10000 a R$ 15000: 15% de comissão
+    - Vendas > R$ 15000: 20% de comissão
+    */
+    let vendedores = [`Carlos`, `Ana`, `Pedro`];
+    let vendas = [[], [], []];
+
+    function validar(sla) {
+        while (sla <= 0 || isNaN(sla)) {
+    sla = Number(prompt(`Inválido! O valor deve ser positivo:`));
+
+    }
+    return sla;
+
+}
+    function registrar(nome){
+        for(dias = 0; dias <= 5; dias++){
+        let vendido = Number(prompt(`Informe a venda do dia ${dias} do vendedor ${nome}`));
+
+         while (vendido <= 0 || isNaN(vendido)) {
+        vendido = Number(prompt(`Inválido! O valor deve ser positivo:`));
+
+        // Ainda vou ver como vou add isso pra vendas
+        }
+    }
+}
+</script>
