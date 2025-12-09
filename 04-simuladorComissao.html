@@ -49,4 +49,57 @@
         }
         return comissao;
     }
+    //exibição
+
+    let opcao = 1;
+
+    while (opcao > 0) {
+    opcao = parseInt(prompt(
+        ` GERENCIAMENTO DE VENDAS \n\n` +
+        `1. Registrar vendas\n` +
+        `2. Mostrar ranking\n` +
+        `0. Sair\n\n` +
+        `Escolha uma opção:`));
+
+    switch(opcao) {
+        case 1:
+         let escolha = parseInt(prompt(
+            `Escolha o vendedor:\n` +
+            `0-Carlos\n` +
+            `1-Ana\n` +
+            `2-Pedro`));
+
+           if (escolha >= 0 && escolha < 3) {
+            registrar(vendedores[escolha], escolha);
+            alert(`Vendas do ${vendedores[escolha]} registradas`);
+      } else {
+                alert(`INVÁLIDO`);
+            }
+            break;
+
+        case 2:
+              let resultados = [];
+            for (let i = 0; i < vendedores.length; i++) {
+                let total = calcular(vendas[i]);
+                let comi = comissao(total);
+                resultados.push({ nome: vendedores[i], total, comissao: comi });
+            }
+
+            resultados.sort((a, b) => b.total - a.total);
+
+            let mensagem = `Ranking de Vendedores:\n`;
+            for (let i = 0; i < resultados.length; i++) {
+                mensagem = mensagem + `${i + 1}º lugar: ${resultados[i].nome}  Total: R$${resultados[i].total.toFixed(2)} (Comissão: R$ ${resultados[i].comissao.toFixed(2)})\n`;
+            }
+            alert(mensagem);
+            break;
+
+        case 0:
+            alert(`Saindo do sistema`);
+            break;
+
+        default:
+            alert(`INVÁLIDO`);
+    }
+}
 </script>
